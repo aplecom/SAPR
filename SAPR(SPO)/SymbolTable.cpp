@@ -35,7 +35,10 @@ bool SymbolTable::isKeyWord(const std::string& token)
 bool SymbolTable::isDigit(const std::string& token)
 {
     if (token.back() == ';')
-        return !token.empty() && std::all_of(token.begin(), token.end()-1, isdigit);
+    {
+        auto iter = token.end() - 1;
+        return !token.empty() && std::all_of(token.begin(), iter, isdigit);
+    }
     else 
         return !token.empty() && std::all_of(token.begin(), token.end(), isdigit);
 

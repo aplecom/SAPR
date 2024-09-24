@@ -17,14 +17,30 @@ void Lexical::classifyTokens()
 	for (const std::string& token : tokens)
 	{
 		if (symbolTable.isKeyWord(token))
-			std::cout << token << " :keyword" << std::endl;
+			if (token.back() == ';')
+			{
+				std::string tempToken = token;
+				tempToken.pop_back();
+				std::cout << tempToken << " :keyword" << std::endl;
+			}
+			else
+				std::cout << token << " :keyword" << std::endl;
+
 		else if (symbolTable.isOperator(token))
 		{
 			std::cout << token << " :operator" << std::endl;
 		}
 		else if (symbolTable.isDigit(token))
 		{
-			std::cout << token << " :number" << std::endl;
+			if (token.back() == ';')
+			{
+				std::string tempToken = token;
+				tempToken.pop_back();
+				if(!tempToken.empty())
+					std::cout << tempToken << " :number" << std::endl;
+			}
+			else
+				std::cout << token << " :number" << std::endl;
 		}
 		else
 		{
