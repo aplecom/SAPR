@@ -1,0 +1,12 @@
+.vs/
+x64/
+*.exe       
+*.obj       
+*.pdb        
+*.idb        
+*.log        
+*.tmp        
+*.suo        
+*.user    
+*.vcxproj
+*.vcxproj.filters
