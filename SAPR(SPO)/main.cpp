@@ -10,7 +10,7 @@ int main() {
 
     Warning warning;
     if (warning.isError()) {
-        cout << "Code contains errors." << endl;
+        getchar();
     }
     else {
         Lexical lexer;

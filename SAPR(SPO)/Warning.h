@@ -6,7 +6,7 @@ class Warning {
 
     std::string code;
     void getCode();
-    void compileCode();
+    bool compileCode();
 public:
     bool isError();
 };
