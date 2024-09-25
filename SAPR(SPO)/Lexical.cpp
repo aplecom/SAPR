@@ -2,6 +2,26 @@
 #include <sstream>
 #include <iostream>
 
+bool Lexical::printPostI(const std::string& token)
+{
+	if (token.length() == 3 && token[0] == '+')
+	{
+		std::cout << token[0] << token[1] << " :operator" << std::endl << token[2] << " :identifier" << std::endl;
+		return 1;
+	}
+	return 0;
+}
+
+bool Lexical::printPrefI(const std::string& token)
+{
+	if (token.length() == 3 && token[2] == '+')
+	{
+		std::cout << token[1] << token[2] << " :operator" << std::endl << token[0] << " :identifier" << std::endl;
+		return 1;
+	}
+	return 0;
+}
+
 void  Lexical::tokenization(const std::string& input)
 {
 	
@@ -28,7 +48,10 @@ void Lexical::classifyTokens()
 
 		else if (symbolTable.isOperator(token))
 		{
-			std::cout << token << " :operator" << std::endl;
+			if (printPostI(token));
+			else if (printPrefI(token));
+			else std::cout << token << " :operator" << std::endl;
+
 		}
 		else if (symbolTable.isDigit(token))
 		{

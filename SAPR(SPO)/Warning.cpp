@@ -29,7 +29,7 @@ bool Warning::compileCode() {
         return false;
     }
 
-    std::string command = "g++ temp_code.cpp -o temp_output 2> errors.txt";
+    std::string command = "g++ temp_code.cpp -o temp_output";
     int result = system(command.c_str());
 
     if (result != 0) {

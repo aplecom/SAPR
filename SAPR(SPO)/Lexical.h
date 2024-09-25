@@ -8,6 +8,9 @@ class Lexical
 {
 	std::vector<std::string> tokens;
 	SymbolTable symbolTable;
+
+	bool printPostI(const std::string& token);
+	bool printPrefI(const std::string& token);
 public:
 	void tokenization(const std::string& input);
 	void classifyTokens();

@@ -15,9 +15,17 @@ SymbolTable::SymbolTable()
     "cout","cin","endl","main()"};
 };
 
+bool SymbolTable::isIncrement(const std::string& token)
+{
+    return (token.length() == 3 && token[0] == '+' && token[1] == '+' && isalpha(token[2]))
+        || (token.length() == 3 && isalpha(token[0]) && token[1] == '+' && token[2] == '+');
+}
+
 bool SymbolTable::isOperator(const std::string& token)
 {
-    return std::find(operators.begin(), operators.end(), token) != operators.end();
+    if(!isIncrement(token))
+        return std::find(operators.begin(), operators.end(), token) != operators.end();
+    return true;
 }
 
 bool SymbolTable::isKeyWord(const std::string& token)

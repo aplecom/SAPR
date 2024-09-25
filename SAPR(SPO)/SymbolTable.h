@@ -7,7 +7,7 @@ class SymbolTable
 {
 	std::vector <std::string> operators;
 	std::vector <std::string> keyWords;
-	
+	bool isIncrement(const std::string& token);
 public:
 	SymbolTable();
 
